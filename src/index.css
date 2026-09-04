@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-forest: 15 42 31;
+    --color-forest-deep: 15 42 31;
+    --color-gold: 201 162 39;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-foreground antialiased bg-background;
+  }
+
+  ::selection {
+    @apply bg-gold/30 text-forest-deep;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-gold ring-offset-2;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .eyebrow {
+    @apply text-[0.7rem] font-semibold uppercase tracking-[0.08em];
+  }
+
+  .section {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+
+  .section-sm {
+    @apply py-12 sm:py-16 lg:py-20;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 tracking-[0.08em] uppercase font-semibold h-11 rounded-md px-7 text-sm;
+  }
+
+  .btn-primary {
+    @apply btn bg-gold text-gold-foreground hover:bg-gold/90;
+  }
+
+  .btn-secondary {
+    @apply btn bg-forest text-forest-foreground hover:bg-forest-deep;
+  }
+
+  .btn-outline {
+    @apply btn bg-transparent border border-forest-foreground/70 text-forest-foreground hover:bg-forest-foreground/10;
+  }
+
+  .btn-outline-dark {
+    @apply btn bg-transparent border border-forest/40 text-forest hover:bg-forest/5;
+  }
+
+  .btn-outline-light {
+    @apply btn bg-transparent border border-white/40 text-white hover:bg-white/10;
+  }
+
+  .card {
+    @apply overflow-hidden rounded-sm border border-border bg-card;
+  }
+
+  .input {
+    @apply w-full px-4 py-3.5 rounded-md border border-border bg-white text-foreground placeholder:text-muted-foreground transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent disabled:bg-neutral-50 disabled:cursor-not-allowed;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-neutral-700 mb-2;
+  }
+
+  .textarea {
+    @apply input min-h-[120px] resize-y;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
